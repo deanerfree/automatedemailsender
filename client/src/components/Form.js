@@ -1,20 +1,16 @@
 import { useState } from 'react'
 const Form = () => {
   const [recipient, setRecipient] = useState('')
-  const [email, setEmail] = useState('')
+  const [sender, setSender] = useState('')
   const [subject, setSubject] = useState('')
-  const [name, setName] = useState('')
-  const [message, setMessage] = useState('')
+  const [text, setText] = useState('')
 
-  const sendEmail = async () => {
-    await fetch(
-      `http://localhost:4000/send-email?recipient=${recipient}&sender=${email}&subject=${subject}&name=${name}&message=${message}`,
-    )
-      .then((res) => res.json())
-      .then((data) => console.log('sent success', data))
-      .catch((error) => {
-        console.log(`Error: ${error}`)
-      })
+  const sendEmail = () => {
+    fetch(
+      `http://localhost:4000/mail?recipient=${recipient}&sender=${sender}&topic=${subject}&text=${text}`,
+    ).catch((error) => {
+      console.log(`Error: ${error}`)
+    })
   }
 
   const submitHandler = (e) => {
@@ -24,7 +20,7 @@ const Form = () => {
 
   return (
     <form onSubmit={submitHandler}>
-      <div className="emailContainer">
+      <div classsubject="emailContainer">
         <label>RECIPIENT EMAIL:</label>
         <input
           onChange={(e) => {
@@ -34,7 +30,7 @@ const Form = () => {
         <label>EMAIL:</label>
         <input
           onChange={(e) => {
-            setEmail(e.target.value)
+            setSender(e.target.value)
           }}
         ></input>
         <label>SUBJECT:</label>
@@ -43,18 +39,13 @@ const Form = () => {
             setSubject(e.target.value)
           }}
         ></input>
-        <label>NAME:</label>
-        <input
-          onChange={(e) => {
-            setName(e.target.value)
-          }}
-        ></input>
         <label>MESSAGE:</label>
         <input
           onChange={(e) => {
-            setMessage(e.target.value)
+            setText(e.target.value)
           }}
         ></input>
+        <button type="submit">Submit</button>
       </div>
     </form>
   )
