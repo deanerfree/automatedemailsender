@@ -9,10 +9,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "express": "^4.17.1",
     "nodemon": "^2.0.7"
   },
   "devDependencies": {},
   "keywords": [],
   "description": ""
+=======
+    "@sendgrid/mail": "^7.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+>>>>>>> df2da1951f1e7e55e9782a512b937a44ee68d26a
 }
