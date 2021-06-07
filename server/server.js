@@ -21,7 +21,7 @@ app.get('/mail', (req, res) => {
 
   const msg = {
     to: recipient,
-    from: sender,
+    from: 'kurtiscoding@gmail.com',
     subject: topic,
     text: text,
   }

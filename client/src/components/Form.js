@@ -7,7 +7,7 @@ const Form = () => {
 
   const sendEmail = () => {
     fetch(
-      `http://localhost:4000/mail?recipient=${recipient}&sender=${sender}&topic=${subject}&text=${text}`,
+      `http://localhost:4000/mail?recipient=${recipient}&topic=${subject}&text=${text}`,
     ).catch((error) => {
       console.log(`Error: ${error}`)
     })
@@ -25,12 +25,6 @@ const Form = () => {
         <input
           onChange={(e) => {
             setRecipient(e.target.value)
-          }}
-        ></input>
-        <label>EMAIL:</label>
-        <input
-          onChange={(e) => {
-            setSender(e.target.value)
           }}
         ></input>
         <label>SUBJECT:</label>
